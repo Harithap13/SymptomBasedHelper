@@ -1,0 +1,65 @@
+﻿Prognosis,Age,Rec1,Rec2,Rec3
+Acne,Children,Not Applicable,Not Applicable,Not Applicable
+Acne,Teenagers,Exfoliate your skin,Use Retinoid creams,Consult your dermatologist
+Acne,Adults,Use salicylic acid creams,Use Benzoyl Peroxide creams and take Clindamycin antibiotic,Consult your dermatologist
+Acne,Senior Citizens,Not Applicable,Not Applicable,Not Applicable
+Allergy,Children,Bathe the irritated area with warm water and mild soap,Apply anithistamine lotion,Consult your paediatrician
+Allergy,Teenagers,Take an anithistamine,Take a epinephrine shot,Consult your dermatologist
+Allergy,Adults,Take an anithistamine,Take a epinephrine shot,Consult your dermatologist
+Allergy,Senior Citizens,Take an anithistamine,Take a epinephrine shot,Consult your dermatologist
+Bronchial Asthma,Children,Use a humidifier,Take short-acting bronchodilators - albuterol,Consult your paediatrician
+Bronchial Asthma,Teenagers,Use Leukotriene modifiers,Take short-acting bronchodilators - pirbuterol,Consult your pulminologist
+Bronchial Asthma,Adults,Take short-acting bronchodilators - levalbuterol,Take long-acting bronchodilators - Symbicort,Consult your pulminologist
+Bronchial Asthma,Senior Citizens,Use a humidifier,Take cromolyn,Consult your respiratory therapist
+Chicken Pox,Children,Soak the infant in colloidal oatmeal baths,Apply a topical ointment - calamine lotion,Consult your paediatrician
+Chicken Pox,Teenagers,Apply a topical ointment - petroleum jelly,Take an oral antihistamine,Consult your paediatrician
+Chicken Pox,Adults,Apply a topical ointment - petroleum jelly,Take non-aspirin medications - ibuprofen,Consult your internist
+Chicken Pox,Senior Citizens,Take non-aspirin medications - ibuprofen,Take antiviral medication - zovirax,Consult your geriatrician
+Common Cold,Children,Take plenty of fluids,Apply Mentholated Ointment - VickaVaporub,Consult your paediatrician
+Common Cold,Teenagers,Use a humidifier,Take tylenol,Consult your ENT specialist
+Common Cold,Adults,Use a humidifier,Take nyquil,Consult your ENT specialist
+Common Cold,Senior Citizens,Be hydreated ,Take robitussin,Consult your ENT specialist
+Dengue,Children,Keep yourself hydrated,Sponge the child with cloth soaked in water,Consult your paediatrician
+Dengue,Teenagers,Keep yourself hydrated,Take a paracetamol,Consult your paediatrician
+Dengue,Adults,Keep yourself hydrated,Take a paracetamol,Consult your internist
+Dengue,Senior Citizens,Keep yourself hydrated,Take tylenol and codeine,Consult your geriatrician
+Diabetes,Children,Take metformin,Take insulin,Consult your paediatrician
+Diabetes,Teenagers,Take sulfonylureas,Take insulin,Consult your endocrinologist
+Diabetes,Adults,Take DPP-4 inhibitors,Take insulin,Consult your endocrinologist
+Diabetes,Senior Citizens,Take glucophage,Take insulin secretagogues,Consult your endocrinologist
+Fungal Infection,Children,Use topical creams,Undergo shampoo treatments,Consult your dermatologist
+Fungal Infection,Teenagers,Use an antifugal cream - Mycelex,Take antifungal antibiotics - fluconazole,Consult your dermatologist
+Fungal Infection,Adults,Use an antifugal cream - Troche,Take antifungal antibiotics - ketoconazole,Consult your dermatologist
+Fungal Infection,Senior Citizens,Use oral Azole agents,Use lipid formulation of amphotericin B,Consult your dermatologist
+Hypertension,Children,Not Applicable,Not Applicable,Not Applicable
+Hypertension,Teenagers,Increase physical activity,Take alpha-blockers - prazosin,Consult your paediatrician
+Hypertension,Adults,Increase physical activity,Take beta-blockers - atenolol,Consult your cardiologist
+Hypertension,Senior Citizens,Take renin inhibitors,Take central-acting agents - clonidine,Consult your cardiologist
+Jaundice,Children,Place the infant under direct sunlight,Perform phototheraphy,Consult your paediatrician
+Jaundice,Teenagers,Keep yourself hydrated,Take Diuretics,Consult your gastroenterologist
+Jaundice,Adults,Keep yourself hydrated,Take Diuretics,Consult your gastroenterologist
+Jaundice,Senior Citizens,Have coffee or herbal tea,Take Lactulose and Digestive enzymes,Consult your gastroenterologist
+Malaria,Children,Do tepid sponging,Take oral paracetamol,Consult your paediatrician
+Malaria,Teenagers,Take oral paracetamol,Take antimalarial drugs - Quinine,Consult your paediatrician
+Malaria,Adults,Take oral paracetamol,Take antimalarial drugs - Mefloquine,Consult your internist
+Malaria,Senior Citizens,Take oral paracetamol,Take antimalarial drugs - Chloroquine Phosphate,Consult your geriatrician
+Migraine,Children,Not Applicable,Not Applicable,Not Applicable
+Migraine,Teenagers,Drink a caffeinated beverage,Take an aspirin or tylenol,Consult your paediatrician
+Migraine,Adults,Apply hot packs and take a warm shower,Take a topiramate,Consult your neurologist
+Migraine,Senior Citizens,Apply hot packs and take a warm shower,Take a triptan,Consult your neurologist
+Peptic Ulcer Disease,Children,Take some honey,Take chewable pepto-bismol,Consult your paediatrician
+Peptic Ulcer Disease,Teenagers,Take some flavonoids,Take antacids like gelusil,Consult your gastroenterologist
+Peptic Ulcer Disease,Adults,Take some flavonoids,Take antacids like gelusil,Consult your gastroenterologist
+Peptic Ulcer Disease,Senior Citizens,Take some probiotics,Take proton pump inhibitors,Consult your gastroenterologist
+Pneumonia,Children,Increase the fluid intake ,Take an antiviral medicine - levaquin,Consult your paediatrician
+Pneumonia,Teenagers,Increase the fluid intake ,Take an antiviral medicine - amoxil,Consult your paediatrician
+Pneumonia,Adults,Increase the fluid intake ,Take an antiviral medicine - avelox,Consult your lung specialist
+Pneumonia,Senior Citizens,Increase the fluid intake ,Take an antiviral medicine - bactrim,Consult your respiratory therapist
+Tuberculosis,Children,Take Isoniazid-Rifapentine ,Take daily dose of Rifampin,Consult your paediatrician
+Tuberculosis,Teenagers,Take Isoniazid-Rifapentine ,Take Ethambutol,Consult your paediatrician
+Tuberculosis,Adults,Take Isoniazid-Rifapentine ,Take Ethambutol,Consult your pulminologist
+Tuberculosis,Senior Citizens,Take Isoniazid-Rifapentine ,Take Pyrazinamide,Consult your pulminologist
+Typhoid,Children,Keep yourself hydrated,Take a paracetamol,Consult your paediatrician
+Typhoid,Teenagers,Increase the fluid intake and use cold compresses,Take ciprofloxacin,Consult your paediatrician
+Typhoid,Adults,Increase the fluid intake and use cold compresses,Take ceftriaxone,Consult your internist
+Typhoid,Senior Citizens,Increase the fluid intake and drink ORS,Take chloramphenicol,Consult your geriatrician
