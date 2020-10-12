@@ -2,19 +2,35 @@ from tkinter import *
 import numpy as np
 import pandas as pd
 import csv
+import sklearn
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+
 
 obs=0 #--------------------------------------------->>>>>Global variable to store obesity index
 finalpred=[]#------------------------------------------>>>>>> Store the 3 values
 age_cat=""
 most_prob=""
 
-l1=['back_pain','constipation',
+#----------Accuracy-------------------
+ca1=0
+ca2=0
+ca3=0
+#
+
+l1=['back_pain','constipation','itching','nodal_skin_eruptions',
+    'skin_rash','continuous_sneezing','shivering','chills',
+    'joint_pain','acidity','vomiting','weight_loss','restlessness',
+    'lethargy','irregular_sugar_level','cough','high_fever','breathlessness',
+    'sweating','indigestion','headache','yellowish_skin',
+    'dark_urine','nausea','loss_of_appetite','pain_behind_the_eyes',
     'abdominal_pain','fatigue','diarrhoea',
     'mild_fever','yellowing_of_eyes',
     'swelled_lymph_nodes',
     'malaise','blurred_and_distorted_vision','phlegm',
     'throat_irritation','redness_of_eyes','sinus_pressure',
-    'runny_nose','congestion','chest_pain','fast_heart_rate','dizziness',
+    'runny_nose','congestion','chest_pain','fast_heart_rate',
+    'dizziness',
     'obesity','excessive_hunger',
     'stiff_neck','loss_of_balance',
     'loss_of_smell',
@@ -30,6 +46,7 @@ l1=['back_pain','constipation',
     'pus_filled_pimples','blackheads',
     'scurring']
 
+
 disease=['Fungal infection','Allergy',
 'Peptic ulcer diseae','Diabetes','Bronchial Asthma','Hypertension',
 ' Migraine','Jaundice','Malaria','Chicken pox','Dengue','Typhoid','Tuberculosis',
@@ -39,6 +56,8 @@ disease=['Fungal infection','Allergy',
 l2=[]
 for x in range(0,len(l1)):
     l2.append(0)
+    
+    
     
 #--------------------------------------------------------------------------------------------------------   
 
@@ -64,6 +83,7 @@ for i in range(len(ysP)):
 
 
 # TRAINING DATA -------------------------------------------------------------------------------------
+
 df=pd.read_csv("Training.csv")
 df.replace({'prognosis':{'Fungal infection':0,'Allergy':1,
 'Peptic ulcer diseae':2,'Diabetes ':3,'Bronchial Asthma':4,'Hypertension ':5,
@@ -77,8 +97,8 @@ X= df[l1]
 y = df[["prognosis"]]
 np.ravel(y)
 # print(y)
-
-tr=pd.read_csv("Testing.csv")
+#Test2-works properly
+tr=pd.read_csv("Testing4.csv")
 tr.replace({'prognosis':{'Fungal infection':0,'Allergy':1,
 'Peptic ulcer diseae':2,'Diabetes ':3,'Bronchial Asthma':4,'Hypertension ':5,
 'Migraine':6,'Jaundice':7,'Malaria':8,'Chicken pox':9,'Dengue':10,'Typhoid':11,'Tuberculosis':12,
@@ -87,6 +107,19 @@ tr.replace({'prognosis':{'Fungal infection':0,'Allergy':1,
 X_test= tr[l1]
 y_test = tr[["prognosis"]]
 np.ravel(y_test)
+
+"""
+from sklearn.metrics import accuracy_score
+from sklearn import tree
+length_to_split = int(len(df) * 0.6)
+X_train, X_ts = X[:length_to_split], X[length_to_split:]
+y_train, y_ts = y[:length_to_split], y[length_to_split:]
+
+clfa = tree.DecisionTreeClassifier(random_state=20)
+model = clfa.fit(X_train, y_train)
+print(accuracy_score(y_ts, model.predict(X_ts), normalize=True)*15)
+
+"""
 # ------------------------------------------------------------------------------------------------------
 def CalcBMI():
     global obs
@@ -118,13 +151,17 @@ def OverallPred():
     global finalpred
     global age_cat
     global most_prob
-    print(finalpred)
+    global ca1,ca2,ca3
+    
+    #print(finalpred)
     print(age_cat)
     max=1
     if(finalpred.count(finalpred[0])>max):
         most_prob=finalpred[0]
+        print(ca1)
     elif(finalpred.count(finalpred[1])>max):
         most_prob=finalpred[1]
+        print(ca2)
     else:
         finalpred=[]
         DecisionTree()
@@ -163,6 +200,13 @@ def DecisionTree():
     from sklearn import tree
     clf3 = tree.DecisionTreeClassifier()
     clf3 = clf3.fit(X,y)
+    
+   
+    from sklearn.metrics import accuracy_score
+    y_pred=clf3.predict(X_test)
+    global ca1
+    ca1=accuracy_score(y_test, y_pred)
+    
 
     if(obs==1):
         psymptoms = [Symp1.get(),Symp2.get(),Symp3.get(),Symp4.get(),Symp5.get(),"obesity"]  #Patient Symptoms
@@ -178,7 +222,7 @@ def DecisionTree():
     inputtest = [l2]
     predict = clf3.predict(inputtest)
     predicted=predict[0]
-    print(disease[predicted])
+    #print(disease[predicted])
     
     global finalpred
 
@@ -207,6 +251,11 @@ def randomforest():
     clf4 = RandomForestClassifier()
     clf4 = clf4.fit(X,np.ravel(y))
     
+    from sklearn.metrics import accuracy_score
+    y_pred=clf4.predict(X_test)
+    global ca2
+    ca2=accuracy_score(y_test, y_pred)
+    
     if(obs==1):
         psymptoms = [Symp1.get(),Symp2.get(),Symp3.get(),Symp4.get(),Symp5.get(),"obesity"]
     else:
@@ -220,7 +269,7 @@ def randomforest():
     inputtest = [l2]
     predict = clf4.predict(inputtest)
     predicted=predict[0]
-    print(disease[predicted])
+    #print(disease[predicted])
 
     h='no'
     for a in range(0,len(disease)):
@@ -245,6 +294,11 @@ def NaiveBayes():
     gnb = GaussianNB()
     gnb=gnb.fit(X,np.ravel(y))
     
+    from sklearn.metrics import accuracy_score
+    y_pred=gnb.predict(X_test)
+    global ca3
+    ca3=accuracy_score(y_test, y_pred)
+    
     if(obs==1):
         psymptoms = [Symp1.get(),Symp2.get(),Symp3.get(),Symp4.get(),Symp5.get(),"obesity"]
     else:
@@ -258,7 +312,7 @@ def NaiveBayes():
     inputtest = [l2]
     predict = gnb.predict(inputtest)
     predicted=predict[0]
-    print(disease[predicted])
+    #print(disease[predicted])
 
     h='no'
     for a in range(0,len(disease)):
@@ -280,7 +334,7 @@ def NaiveBayes():
 # GUI BUILD - > Version 1
 
 root = Tk()
-
+root.configure(background='lightblue')
 # entry variables
 Symp1 = StringVar()
 Symp1.set(None)
@@ -297,7 +351,7 @@ Weight = StringVar()
 Age = StringVar()
 
 # Heading
-w2 = Label(root, justify=LEFT, text="Enter the 5 main Symptoms")
+w2 = Label(root, justify=LEFT, text="Disease Prediction and Recommendation")
 w2.config(font=(30))
 w2.grid(row=1, column=0, columnspan=2, padx=100)
 
@@ -400,6 +454,7 @@ t2.grid(row=17, column=1 , padx=10)
 
 t3 = Text(root, height=1, width=40)
 t3.grid(row=18, column=1 , padx=10)"""
+
 
 t4 = Text(root, height=1, width=40)
 t4.grid(row=19, column=1 , padx=10)
