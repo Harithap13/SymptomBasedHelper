@@ -1,3 +1,10 @@
+#                                                            Creative And Innovative Project
+#                                                  Symptom Based Disease Prediction and Recommendation
+#  Amritha Barade (2017103055)
+#  Haritha Poornachandran (2017103057)
+
+#----------------------------------------------------------------------------------------------------------------------------------------------
+
 from tkinter import *
 import numpy as np
 import pandas as pd
@@ -6,17 +13,17 @@ import sklearn
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
-
 obs=0 #--------------------------------------------->>>>>Global variable to store obesity index
 finalpred=[]#------------------------------------------>>>>>> Store the 3 values
-age_cat=""
-most_prob=""
+age_cat=""#---------------------------------------------->>>>>>>>>>Age Category of patient
+most_prob=""#----------------------------------->>>>>>>>>>Most probable disease as predicted by the 3 algorithms
 
-#----------Accuracy-------------------
+#----------Accuracy variables-------------------
 ca1=0
 ca2=0
 ca3=0
-#
+
+#--------------Declaration of lists containing all possible Diseases and Symptoms
 
 l1=['back_pain','constipation','itching','nodal_skin_eruptions',
     'skin_rash','continuous_sneezing','shivering','chills',
@@ -56,33 +63,8 @@ disease=['Fungal infection','Allergy',
 l2=[]
 for x in range(0,len(l1)):
     l2.append(0)
-    
-    
-    
-#--------------------------------------------------------------------------------------------------------   
 
-
-"""
-ysP=sa[["Prognosis"]]
-np.ravel(ysP)
-ysA=sa[["Age"]]
-np.ravel(ysA)
-ysR1=sa[["Rec1"]]
-np.ravel(ysR1)
-ysR2=sa[["Rec2"]]
-np.ravel(ysR2)
-ysR3=sa[["Rec3"]]
-np.ravel(ysR3)
-
-#slt_df = sa[(sa['Age'] == 'Adults') & (sa['Prognosis'] == 'Acne')] 
-#print(slt_df['Rec1'])
-
-for i in range(len(ysP)):
-    if (ysP[i]=="Acne" and ysA[i]=="Teenagers"):
-        print("yes")"""
-
-
-# TRAINING DATA -------------------------------------------------------------------------------------
+# -----------------------TRAINING DATA -------------------------------------------------------------------------------------
 
 df=pd.read_csv("Training.csv")
 df.replace({'prognosis':{'Fungal infection':0,'Allergy':1,
@@ -108,10 +90,12 @@ X_test= tr[l1]
 y_test = tr[["prognosis"]]
 np.ravel(y_test)
 
+#---> Initial code for testing by taking splitting initial Training dataset as 30 + 70. 
+
 """
 from sklearn.metrics import accuracy_score
 from sklearn import tree
-length_to_split = int(len(df) * 0.6)
+length_to_split = int(len(df) * 0.7)
 X_train, X_ts = X[:length_to_split], X[length_to_split:]
 y_train, y_ts = y[:length_to_split], y[length_to_split:]
 
@@ -178,9 +162,9 @@ def OverallPred():
     Xs=sa[sl1]
     
     slt_df = sa[(sa['Age'] == age_cat) & (sa['Prognosis'] == most_prob)] 
-    print(slt_df['Rec1'])
-    print(slt_df['Rec2'])
-    print(slt_df['Rec3'])
+    #print(slt_df['Rec1'])
+   # print(slt_df['Rec2'])
+    #print(slt_df['Rec3'])
     
     
     t5.delete("1.0", END)
@@ -234,14 +218,10 @@ def DecisionTree():
 
 
     if (h=='yes'):
-    #    t1.delete("1.0", END)
-     #   t1.insert(END, disease[a])
         finalpred.append(disease[predicted])
 
     else:
         print("")
-     #   t1.delete("1.0", END)
-     #   t1.insert(END, "Not Found")
         
     randomforest()
 
@@ -278,13 +258,9 @@ def randomforest():
             break
     global finalpred
     if (h=='yes'):
-     #   t2.delete("1.0", END)
-     #   t2.insert(END, disease[a])
         finalpred.append(disease[predicted])
     else:
         print("")
-      #  t2.delete("1.0", END)
-       # t2.insert(END, "Not Found")
     
     NaiveBayes()
 
@@ -321,21 +297,17 @@ def NaiveBayes():
             break
     global finalpred
     if (h=='yes'):
-        #t3.delete("1.0", END)
-       # t3.insert(END, disease[a])
         finalpred.append(disease[predicted])
     else:
         print("")
-        #t3.delete("1.0", END)
-        #t3.insert(END, "Not Found")
         
     OverallPred()
 
-# GUI BUILD - > Version 1
+# Graphical User interface design
 
 root = Tk()
 root.configure(background='lightblue')
-# entry variables
+
 Symp1 = StringVar()
 Symp1.set(None)
 Symp2 = StringVar()
@@ -350,10 +322,10 @@ Height = StringVar()
 Weight = StringVar()
 Age = StringVar()
 
-# Heading
-w2 = Label(root, justify=LEFT, text="Disease Prediction and Recommendation")
+# Title
+w2 = Label(root, text="Disease Prediction and Recommendation")
 w2.config(font=(30))
-w2.grid(row=1, column=0, columnspan=2, padx=100)
+w2.grid(row=1, column=1, columnspan=2, padx=100)
 
 # labels
 GenLb = Label(root, text="Enter Age")
@@ -381,15 +353,6 @@ S5Lb = Label(root, text="Symptom 5")
 S5Lb.grid(row=11, column=0, pady=10, sticky=W)
 
 
-#lrLb = Label(root, text="DecisionTree")
-#lrLb.grid(row=15, column=0, pady=10,sticky=W)
-
-#destreeLb = Label(root, text="RandomForest")
-#destreeLb.grid(row=17, column=0, pady=10, sticky=W)
-
-#ranfLb = Label(root, text="NaiveBayes")
-#ranfLb.grid(row=18, column=0, pady=10, sticky=W)
-
 oLb = Label(root, text="Final Predicion")
 oLb.grid(row=19, column=0, pady=10, sticky=W)
 
@@ -402,7 +365,7 @@ rcm2Lb.grid(row=21, column=0, pady=10, sticky=W)
 rcm3Lb = Label(root, text="Other potential solutions")
 rcm3Lb.grid(row=22, column=0, pady=10, sticky=W)
 
-# entries
+# Enter values
 OPTIONS = sorted(l1)
 
 AEn = Entry(root, textvariable=Age)
@@ -433,27 +396,6 @@ S5En.grid(row=11, column=1)
 dst = Button(root, text="Predict", command=CalcBMI)
 dst.grid(row=5, column=3,padx=10)
 
-#dst = Button(root, text="Overall", command=OverallPred)
-#dst.grid(row=6, column=3,padx=10)
-
-#dst = Button(root, text="Predict", command=DecisionTree)
-#dst.grid(row=8, column=3,padx=10)
-
-#rnf = Button(root, text="Randomforest", command=randomforest)
-#rnf.grid(row=9, column=3,padx=10)
-
-#lr = Button(root, text="NaiveBayes", command=NaiveBayes)
-#lr.grid(row=10, column=3,padx=10)
-
-#textfileds
-"""t1 = Text(root, height=1, width=40)
-t1.grid(row=15, column=1, padx=10)
-
-t2 = Text(root, height=1, width=40)
-t2.grid(row=17, column=1 , padx=10)
-
-t3 = Text(root, height=1, width=40)
-t3.grid(row=18, column=1 , padx=10)"""
 
 
 t4 = Text(root, height=1, width=40)
