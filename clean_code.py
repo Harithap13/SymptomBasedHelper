@@ -90,12 +90,12 @@ X_test= tr[l1]
 y_test = tr[["prognosis"]]
 np.ravel(y_test)
 
-#---> Initial code for testing by taking splitting initial Training dataset as 30 + 70. 
+#---> Initial code for testing by taking splitting initial Training dataset as 60 + 40
 
 """
 from sklearn.metrics import accuracy_score
 from sklearn import tree
-length_to_split = int(len(df) * 0.7)
+length_to_split = int(len(df) * 0.6)
 X_train, X_ts = X[:length_to_split], X[length_to_split:]
 y_train, y_ts = y[:length_to_split], y[length_to_split:]
 
